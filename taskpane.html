@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BKH Template Manager</title>
+    <!-- Office.js library -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 16px;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            background-color: #faf9f8;
+            color: #201f1e;
+        }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #edebe9;
+        }
+
+        .header-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #323130;
+            margin: 0;
+        }
+
+        .refresh-btn {
+            background: transparent;
+            border: 1px solid #8a8886;
+            color: #323130;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .refresh-btn:hover {
+            background: #edebe9;
+        }
+
+        .status-banner {
+            display: none;
+            padding: 8px 12px;
+            margin-bottom: 12px;
+            font-size: 12px;
+            border-radius: 4px;
+            line-height: 1.4;
+        }
+
+        .status-info {
+            background-color: #eff6fc;
+            color: #004578;
+            border-left: 3px solid #0078d4;
+        }
+
+        .status-success {
+            background-color: #dff6dd;
+            color: #107c10;
+            border-left: 3px solid #107c10;
+        }
+
+        .status-warning {
+            background-color: #fff4ce;
+            color: #797673;
+            border-left: 3px solid #ffb900;
+        }
+
+        .status-error {
+            background-color: #fde7e9;
+            color: #a80000;
+            border-left: 3px solid #a80000;
+        }
+
+        .universal-section {
+            margin-bottom: 14px;
+        }
+
+        .accordion-group {
+            margin-bottom: 8px;
+            border: 1px solid #edebe9;
+            border-radius: 4px;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 12px;
+            background: #f3f2f1;
+            border: none;
+            font-size: 13px;
+            font-weight: 600;
+            color: #323130;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .accordion-header:hover {
+            background: #edebe9;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 8px;
+            background: #ffffff;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .accordion-content.open {
+            display: flex;
+        }
+
+        .workflow-btn {
+            width: 100%;
+            padding: 9px 12px;
+            background: #0078d4;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            transition: background 0.15s ease-in-out;
+        }
+
+        .workflow-btn:hover {
+            background: #106ebe;
+        }
+
+        .workflow-btn:active {
+            background: #005a9e;
+        }
+
+        .empty-hint {
+            font-size: 13px;
+            color: #605e5c;
+            text-align: center;
+            padding: 20px 10px;
+        }
+    </style>
+</head>
+<body>
+    <main id="app-body">
+        <div class="header-bar">
+            <h1 class="header-title">BKH Template Manager</h1>
+            <button id="refresh-templates-btn" class="refresh-btn" title="Reload from Google Sheets">↻ Refresh</button>
+        </div>
+
+        <div id="status-banner" class="status-banner"></div>
+
+        <div id="workflows-container">
+            <div class="empty-hint">Loading templates from Google Sheets...</div>
+        </div>
+    </main>
+
+    <!-- Taskpane logic script -->
+    <script type="text/javascript" src="taskpane.js"></script>
+</body>
+</html>
